@@ -24,3 +24,18 @@ SELECT Name AS Customers
 FROM Customers
 WHERE Id NOT IN  (SELECT CustomerId FROM Orders)
 
+# 196. Delete Duplicate Emails  # Windows function: ROW_number () OVER (PARTITION BY __ ORDER BY __)
+DELETE FROM person
+WHERE id IN (
+    SELECT id
+    FROM (SELECT *, RANK() OVER (PARTITION BY email ORDER BY id) rnk
+        FROM person
+    ) t
+    WHERE rnk > 1
+)
+
+
+
+
+
+
