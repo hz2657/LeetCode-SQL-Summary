@@ -34,6 +34,26 @@ WHERE id IN (
     WHERE rnk > 1
 )
 
+# 197. Rising Temperature  # Lag, windows function
+SELECT Id FROM
+(
+SELECT Id, (Temperature - LAG(Temperature) OVER (ORDER BY RecordDate)) as temp_diff,
+       DATEDIFF(RecordDate, LAG(RecordDate) OVER (ORDER BY RecordDate)) as date_diff
+FROM Weather
+) as innerQ
+WHERE temp_diff > 0 and date_diff = 1
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
