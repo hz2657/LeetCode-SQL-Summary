@@ -1,9 +1,5 @@
-# LeetCode SQL questions
+# SQL Interview Prep
 
-**_started on 21st Aug, 2020
-
-## Intro
-LeetCode SQL questions
 
 ## Topics
 
