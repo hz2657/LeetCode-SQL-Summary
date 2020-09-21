@@ -5,7 +5,7 @@ SELECT CEIL(AVG(Salary) - AVG(REPLACE(Salary, 0, '')))
 FROM EMPLOYEES 
 
 ---Top Earners
-----GROUP BY 1
+----GROUP BY 1, 1 means first column 
 SELECT (months*salary) AS total_salary, COUNT(*)
 FROM Employee 
 GROUP BY 1
@@ -44,8 +44,36 @@ FROM STATION;
 ---- POWER(___, 2): SQUARE                                               
 SELECT ROUND( SQRT(POWER(MIN(LAT_N) - MAX(LAT_N),2) +POWER(MIN(LONG_W) - MAX(LONG_W),2)), 4)
 FROM STATION;                                              
-                       
+                     
+                   
+---Weather Observation Station 20
+---- Calculate median
+---- user-defined variable 
+---- #assigns @rowindex as an incremental index for each distance that is selected                    
+SET @rowindex := -1;
+ 
+SELECT
+   ROUND(AVG(d.LAT_N),4) as Median 
+FROM
+   (SELECT @rowindex:=@rowindex + 1 AS rowindex,
+           STATION.LAT_N AS LAT_N
+    FROM STATION
+    ORDER BY STATION.LAT_N) AS d
+WHERE
+d.rowindex IN (FLOOR(@rowindex / 2), CEIL(@rowindex / 2));
+            
                    
                    
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+                   
+              
                                       
                                       
