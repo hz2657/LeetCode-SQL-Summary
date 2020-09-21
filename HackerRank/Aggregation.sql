@@ -47,9 +47,8 @@ FROM STATION;
                      
                    
 ---Weather Observation Station 20
----- Calculate median
----- user-defined variable 
----- #assigns @rowindex as an incremental index for each distance that is selected                    
+---- Median
+---- user-defined variable @rowindex: an incremental index for each variable that is selected                    
 SET @rowindex := -1;
  
 SELECT
@@ -61,19 +60,6 @@ FROM
     ORDER BY STATION.LAT_N) AS d
 WHERE
 d.rowindex IN (FLOOR(@rowindex / 2), CEIL(@rowindex / 2));
-            
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-                   
-              
+     
                                       
                                       
