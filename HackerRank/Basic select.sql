@@ -1,4 +1,5 @@
 -Weather Observation Station 3
+--- % 
 SELECT DISTINCT CITY 
 FROM STATION
 WHERE ID % 2 = 0; 
@@ -12,6 +13,7 @@ SELECT CITY FROM STATION
 WHERE CITY LIKE "A%" OR CITY LIKE "E%" OR CITY LIKE "I%" OR CITY LIKE "O%" OR CITY LIKE "U%";
 
 - Weather Observation Station 10
+--- REGEXP '^.*[^AAAAA]$'
 SELECT DISTINCT CITY
 FROM STATION
 WHERE CITY REGEXP '^.*[^AEIOU]$'
@@ -21,6 +23,7 @@ FROM STATION
 WHERE CITY NOT LIKE '%a' AND CITY NOT LIKE '%e' AND CITY NOT LIKE '%i' AND CITY NOT LIKE '%o' AND CITY NOT LIKE '%u'
 
 - Weather Observation Station 11
+--- REGEXP '^[^AAAAA].*$'   ---------------.*-------$
 SELECT DISTINCT CITY
 FROM STATION
 WHERE CITY REGEXP '^[^AEIOU].*$' OR CITY REGEXP '^.*[^aeiou]$';
