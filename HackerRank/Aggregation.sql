@@ -4,8 +4,7 @@
 SELECT CEIL(AVG(Salary) - AVG(REPLACE(Salary, 0, '')))
 FROM EMPLOYEES 
 
-
-                                      ---Top Earners
+---Top Earners
 ----GROUP BY 1
 SELECT (months*salary) AS total_salary, COUNT(*)
 FROM Employee 
