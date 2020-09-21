@@ -1,5 +1,6 @@
 ---The Blunder
-----CEIL, REPLACE 
+----CEIL: The CEIL() function returns the smallest integer value that is bigger than or equal to a number;
+---- REPLACE 0 with ''
 SELECT CEIL(AVG(Salary) - AVG(REPLACE(Salary, 0, '')))
 FROM EMPLOYEES 
 
