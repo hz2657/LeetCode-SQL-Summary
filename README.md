@@ -1,4 +1,4 @@
-# SQL Interview Prep
+# SQL Prep
 
 
 ## Topics
