@@ -1,3 +1,4 @@
+/*LEFT JOIN*/
 
 SELECT contest_id, hacker_id, name, A, B, C,D
 FROM Contests 
