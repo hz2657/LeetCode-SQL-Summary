@@ -1,0 +1,24 @@
+#--- USE WINDOWS FUNCTION
+CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
+BEGIN
+  RETURN (SELECT DISTINCT Salary
+        FROM(SELECT DENSE_RANK() OVER (ORDER BY Salary DESC) AS r, Salary
+        FROM Employee) AS FOO
+        WHERE r = N
+  );
+END
+
+
+#-- OR USE OFFSET, AND CHANGE N AFTER BEGIN IN THE FUNCTION
+CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
+BEGIN
+SET N = N-1;
+  RETURN (
+          SELECT Salary
+          FROM Employee
+          ORDER BY Salary DESC
+          LIMIT 1 OFFSET N
+  );
+END
+
+
